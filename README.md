@@ -1,13 +1,13 @@
-# Demo Web App made by @daryllreillo
-A full-stack web demo app
+# My Demo Web App
+A full-stack demo web app by @daryllreillo.
 
 ## Front End Stack
 ### Framework: Next.js 13.4
 During build, the latest stable version of Next.js was 13.4. Currently, I can see v13.5 has been released just a few days ago.
-Next.js' App Router was used for client-routing.
+For client routing, Next.js' App Router was used.
 The build started without TypeScript, Tailwind, and ESLint but were eventually introduced due to the following reasons:
-- to understand the framework migration process
-- to understand the pros and cons of using these new frameworks/tools
+- to understand the migration process from vanilla CSS and JS to a Tailwind and TypeScript
+- to understand firsthand the benefits and downsides of using these new frameworks/tools
 
 ### UI: React 18.2 + Tailwind CSS 3.3.3
 All components are built with Next.js 13.4 Framework for React.js. CSS modules were initially used for the styles then incrementally migrated to use Tailwind CSS.
@@ -23,18 +23,16 @@ Tailwind could have also been used from the very start only as a time saver.
 This is the default runtime for current Next.js build.
 
 ### Authentication: Next-Auth
-I had a choice to use Auth0 or Next-Auth for authentication but choose the latter because it was the first framework that I discovered for authentication which claimed to be compatible with Next.js projects.
-
-I also used nodemailer for the email verification process.
+I had a choice to use Auth0 or Next-Auth for authentication but choose the latter because it was the first auth framework that I discovered which claimed to be compatible with Next.js projects.
+For the email verification process, I used nodemailer.
 
 ### Database: PostgreSQL
 Initially, MongoDB was used for the database but was migrated to PostgreSQL. I find it easier to use SQL than document-based database which is why I won't be using MongoDB in the future if possible.
-
-All content data (users and todos data) are persisted using PostgreSQL database.
+I used the plain useContext for data persistence from the PostgreSQL database to the context provider.
 
 ### API Handling: Next.js Route Handlers
 Route Handlers are the default back-end API handling for Next.js App Router.
 
 ### Back End Language: TypeScript + SQL
-As mentioned, vanilla JavaScript was used initially for this project then I migrated all JS code to TypeScript to learn the migration process.
-MongoDB (no-SQL) was also used initially but I also migrated all the database code to PostgreSQL with the same reason as above.
+Vanilla JavaScript was used initially for this project then I migrated all JS code to TypeScript so I could understand the pains of JS to TS migration.
+MongoDB was used initially for the database then I migrated all the DB code to PostgreSQL.
