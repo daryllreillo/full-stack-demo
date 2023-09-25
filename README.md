@@ -3,11 +3,11 @@
 
 ## Front End Stack
 ### Framework: Next.js 13.4
-    During build, the latest stable version of Next.js was 13.4. Currently, I can see v13.5 has been released just a few days ago.
-    Next.js' App Router was used for client-routing.
-    The build started without TypeScript, Tailwind, and ESLint but were eventually introduced due to the following reasons:
-    - to understand the framework migration process
-    - to understand the pros and cons of using these new frameworks/tools
+During build, the latest stable version of Next.js was 13.4. Currently, I can see v13.5 has been released just a few days ago.
+Next.js' App Router was used for client-routing.
+The build started without TypeScript, Tailwind, and ESLint but were eventually introduced due to the following reasons:
+- to understand the framework migration process
+- to understand the pros and cons of using these new frameworks/tools
 
 ### UI: React 18.2 + Tailwind CSS 3.3.3
     All components are built with Next.js 13.4 Framework for React.js. CSS modules were initially used for the styles then incrementally migrated to use Tailwind CSS.
