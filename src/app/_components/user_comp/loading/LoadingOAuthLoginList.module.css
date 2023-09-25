@@ -1,0 +1,24 @@
+.oAuthContainer {
+  margin-top: 0.3rem;
+}
+
+.oAuthContainer .icon {
+  margin: 0 0.5rem 0 0;
+  padding: 0;
+  color: white;
+  font-size: 24px;
+}
+
+.oAuthContainer .btnText {
+  position: relative;
+  top: -7px;
+}
+
+.oAuthContainer button {
+  margin: 2px 0 0 0;
+  padding: 0.5rem 1rem 0.2rem 0.8rem;
+}
+
+.oAuthContainer button:disabled {
+  width: 172px;
+}

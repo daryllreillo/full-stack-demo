@@ -1,0 +1,23 @@
+.loaderIcon::after {
+  content: '';
+  position: absolute;
+  top: calc(10%);
+  left: calc(50% - 35px);
+  width: 70px;
+  height: 70px;
+  border: 8px solid transparent;
+  border-left-color: #0079d6;
+  /* border-right-color: #01579b; */
+  border-radius: 50%;
+  z-index: 100;
+  animation: loading 0.9s ease-in-out infinite;
+}
+
+@keyframes loading {
+  from {
+    transform: rotate(0turn);
+  }
+  to {
+    transform: rotate(2turn);
+  }
+}
