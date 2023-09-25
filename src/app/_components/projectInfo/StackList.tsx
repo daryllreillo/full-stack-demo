@@ -8,9 +8,9 @@ const StackList: React.FC = () => {
     <>
       <h2 className="text-center text-2xl font-semibold text-mainfg">Project stack</h2>
       <ul className="flex flex-wrap w-[40vw] justify-center min-w-[320px] text-center mx-0">
-        <StackListItem Icon={SiReact} nameText="React" />
-        <StackListItem Icon={SiNextdotjs} nameText="Next.js App Router" />
-        <StackListItem Icon={SiTailwindcss} nameText="TailwindCSS" />
+        <StackListItem Icon={SiReact} nameText="React.js" />
+        <StackListItem Icon={SiNextdotjs} nameText="Next.js" />
+        <StackListItem Icon={SiTailwindcss} nameText="Tailwind CSS" />
         <StackListItem Icon={SiTypescript} nameText="TypeScript" />
         <StackListItem Icon={SiNodedotjs} nameText="Node.js" />
         <StackListItem Icon={SiPostgresql} nameText="PostgreSQL" />

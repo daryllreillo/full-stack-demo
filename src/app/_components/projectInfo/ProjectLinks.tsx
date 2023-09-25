@@ -7,10 +7,9 @@ import logo from '@/app/_icons/favicon-16x16.png';
 const ProjectLinks: React.FC = () => {
   return (
     <div className="text-mainfg mt-3 flex justify-center items-center">
-      <Link href="https://github.com/daryllreillo" target="_blank">
+      <Link href="https://github.com/daryllreillo/full-stack-demo" target="_blank">
         <div className="border-white border-y-[1px] border-x-[1px] border-solid rounded-3xl px-4 py-2">
-          <span>made by: </span>
-          <span>@daryllreillo</span>
+          <span>GitHub repo link</span>
           <span className="ml-1 inline relative -top-0.5">
             <Image src={logo} alt="logo of dog" className="inline w-4" />
           </span>
