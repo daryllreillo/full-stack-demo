@@ -1,5 +1,5 @@
 # Demo Web App made by @daryllreillo
-    A full-stack web demo app
+A full-stack web demo app
 
 ## Front End Stack
 ### Framework: Next.js 13.4
