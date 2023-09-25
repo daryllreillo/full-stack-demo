@@ -27,7 +27,7 @@ const TodoList: React.FC = () => {
   };
 
   return (
-    <div className={styles.todoList}>
+    <div className='mt-4 relative flex flex-col items-center justify-center [&>ul]:w-[100%] [&>ul]:transition-all [&>ul]:duration-[1s] [&>ul]:ease-linear [&>ul]:flex [&>ul]:flex-col [&>ul]:items-center [&>ul]:justify-evenly [&>ul]:ml-4'>
       {/* <p>Click any item to remove from list.</p> */}
       <CSSTransition
         nodeRef={noticePRef}
