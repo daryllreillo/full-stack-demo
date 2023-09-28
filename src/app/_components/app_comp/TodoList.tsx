@@ -2,7 +2,6 @@
 import { useContext, useRef } from 'react';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
-import styles from './TodoList.module.css';
 import TodoItem from '@/app/_components/app_comp/TodoItem';
 import { TodoContext } from '@/app/_components/context/TodoContext';
 import { Todo } from '@/app/_models/todoModel';
