@@ -17,7 +17,6 @@ const MiddleKeys: React.FC = () => {
       <Key keyPrint="J" onClick={() => dispatch(wordleActions.keyStroke({ key: 'j' }))} />
       <Key keyPrint="K" onClick={() => dispatch(wordleActions.keyStroke({ key: 'k' }))} />
       <Key keyPrint="L" onClick={() => dispatch(wordleActions.keyStroke({ key: 'l' }))} />
-      <Key keyPrint="Enter" onClick={() => dispatch(wordleActions.keyStroke({ key: 'Enter' }))} />
     </div>
   );
 };

@@ -8,7 +8,6 @@ const UpperKeys: React.FC = () => {
 
   return (
     <div className="flex flex-row">
-      <Key keyPrint="Esc" onClick={() => dispatch(wordleActions.keyStroke({ key: 'Escape' }))} />
       <Key keyPrint="Q" onClick={() => dispatch(wordleActions.keyStroke({ key: 'q' }))} />
       <Key keyPrint="W" onClick={() => dispatch(wordleActions.keyStroke({ key: 'w' }))} />
       <Key keyPrint="E" onClick={() => dispatch(wordleActions.keyStroke({ key: 'e' }))} />
@@ -19,7 +18,6 @@ const UpperKeys: React.FC = () => {
       <Key keyPrint="I" onClick={() => dispatch(wordleActions.keyStroke({ key: 'i' }))} />
       <Key keyPrint="O" onClick={() => dispatch(wordleActions.keyStroke({ key: 'o' }))} />
       <Key keyPrint="P" onClick={() => dispatch(wordleActions.keyStroke({ key: 'p' }))} />
-      <Key keyPrint="Backspace" onClick={() => dispatch(wordleActions.keyStroke({ key: 'Backspace' }))} />
     </div>
   );
 };

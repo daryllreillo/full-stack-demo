@@ -13,11 +13,11 @@ const Letter: React.FC<LetterInterface> = ({ letter, charStatus }) => {
   return (
     <div
       className={
-        'w-[4rem] h-[4rem] flex items-center justify-center m-[3px] relative ' +
+        'w-[3.3rem] h-[3.3rem] md:w-[4rem] md:h-[4rem] flex items-center justify-center m-[3px] relative ' +
         (charStatus ? (charStatus === 'correct' ? 'bg-green-500' : 'bg-yellow-600') : 'bg-gray-800')
       }
     >
-      <span className="absolute top-1 capitalize text-white font-bold text-[2.3rem]">{letter}</span>
+      <span className="text-[2rem] absolute top-1 capitalize text-white font-bold md:text-[2.3rem]">{letter}</span>
     </div>
   );
 };
