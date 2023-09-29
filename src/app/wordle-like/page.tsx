@@ -15,7 +15,6 @@ import UpperKeys from '@/app/_components/wordle_comp/Keyboard/UpperKeys';
 import MiddleKeys from '@/app/_components/wordle_comp/Keyboard/MiddleKeys';
 import LowerKeys from '@/app/_components/wordle_comp/Keyboard/LowerKeys';
 import { wordleActions, RootState } from '@/app/_components/context/wordleRedux';
-import type { CharStatusType } from '@/app/_components/wordle_comp/Letter';
 
 let wordOfTheDay = '';
 

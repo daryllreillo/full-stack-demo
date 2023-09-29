@@ -1,36 +1,7 @@
 'use client';
 import { createSlice, configureStore } from '@reduxjs/toolkit';
-import useSWR from 'swr';
-import useSWRMutation from 'swr/mutation';
 
 import type { CharStatusType } from '@/app/_components/wordle_comp/Letter';
-
-async function getWOTD() {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_WORDLE_BACKEND}/word-of-the-day?random=1`);
-
-  if (!res.ok) {
-    console.log(res);
-    throw new Error('Failed to fetch data from backend');
-  }
-
-  const data = await res.json();
-
-  return data.word;
-}
-
-async function validateWord(arg: { word: string }) {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_WORDLE_BACKEND}/validate-word`, {
-    method: 'POST',
-    body: JSON.stringify(arg),
-  });
-
-  if (!res.ok) {
-    console.log(res);
-    throw new Error('Failed to verify word from backend');
-  }
-
-  return res.json();
-}
 
 export const initialWordleState: {
   currentWord: string;
@@ -70,7 +41,7 @@ const wordleSlice = createSlice({
       } else if (key === 'Escape') {
         // if escape, remove all characters from current word
         state.currentWord = '';
-      } 
+      }
     },
     setIsGameOver(state, action) {
       state.isGameOver = action.payload.isGameOver;
@@ -87,7 +58,7 @@ const wordleSlice = createSlice({
     setCharStatuses(state) {
       let currentCharStatuses: CharStatusType[] = getCharStatuses(state.wordOfTheDay, state.currentWord);
       state.charStatusesArr[state.tryWords.length - 1] = currentCharStatuses;
-    }
+    },
   },
 });
 
