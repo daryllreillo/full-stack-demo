@@ -59,6 +59,23 @@ const wordleSlice = createSlice({
       let currentCharStatuses: CharStatusType[] = getCharStatuses(state.wordOfTheDay, state.currentWord);
       state.charStatusesArr[state.tryWords.length - 1] = currentCharStatuses;
     },
+    tryCurrentWord(state, action) {
+      const { tryWord, isValid } = action.payload;
+      if (isValid) {
+        // push word to state.tryWords
+        state.tryWords.push(tryWord);
+        // dispatch to set character statuses
+        let currentCharStatuses: CharStatusType[] = getCharStatuses(state.wordOfTheDay, state.currentWord);
+        state.charStatusesArr[state.tryWords.length - 1] = currentCharStatuses;
+        // if word matches WOTD, dispatch to set GameOver and IsWin
+        if (tryWord === state.wordOfTheDay) {
+          state.isGameOver = true
+          state.isWon = true;
+        }
+      }
+      // clear current word
+      state.currentWord = '';
+    },
   },
 });
 
