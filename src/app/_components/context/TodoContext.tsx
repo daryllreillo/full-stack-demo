@@ -2,10 +2,11 @@
 import { createContext, useEffect, useState, createRef } from 'react';
 import useSWR from 'swr';
 import useSWRMutation from 'swr/mutation';
-
+import { Provider } from 'react-redux';
 
 import { Todo, TodoContextType } from '@/app/_models/todoModel';
 import { getColor } from '@/app/_helper-functions/clientHelperFunctions';
+import store from '@/app/_components/context/wordleRedux';
 
 const maxTodoItems = 5;
 
@@ -162,7 +163,7 @@ const TodoProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => 
 
   return (
     <TodoContext.Provider value={{ todoItems, getTodoText, saveTodo, removeTodo, updateTodo, changeItemColor, isLoading }}>
-      {children}
+      <Provider store={store}>{children}</Provider>
     </TodoContext.Provider>
   );
 };
