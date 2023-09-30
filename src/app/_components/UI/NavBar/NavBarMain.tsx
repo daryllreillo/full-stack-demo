@@ -62,7 +62,7 @@ const NavBarMain: React.FC<{ session: Session | null }> = ({ session }) => {
               {/* Menu button */}
               <button
                 className={
-                  'cursor pointer bg-transparent z-10 hidden border-transparent text-lg md:flex md:mr-4 hover:text-link hover:translate-y-0 hover:shadow-none ' +
+                  'cursor pointer bg-transparent z-10 hidden border-transparent text-lg md:flex md:mr-4 hover:text-link hover:translate-y-0 hover:shadow-none text-fg ' +
                   (isMenuOpen ? 'text-link' : '')
                 }
                 aria-label="open or close menu"

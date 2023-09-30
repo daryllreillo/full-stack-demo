@@ -75,7 +75,7 @@ const WordleApp: React.FC = () => {
         onKeyDownCapture={keyHandler}
         ref={appRef}
       >
-        <main className="flex flex-col justify-start items-center h-[93vh] min-h-[750px] w-[100%] bg-cust-image-mainpage bg-cust-size-mainpage animate-cust-animation-mainpage outline-none">
+        <main className="flex flex-col justify-start items-center h-[93vh] min-h-[750px] w-[100%] bg-cust-image-mainpage bg-cust-size-mainpage animate-cust-animation-mainpage outline-none text-white">
           <h2 className="text-4xl mt-4 md:text-5xl font-semibold">Wordle</h2>
           <p className="mb-1">(random word edition)</p>
           <div id="wordle_app" className="flex flex-col p-[3px] bg-black rounded-md">
