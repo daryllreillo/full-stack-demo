@@ -9,13 +9,13 @@ const AboutMePage: React.FC = () => {
         <h2 className="text-mainfg text-center mb-1 text-2xl font-semibold">About me</h2>
         <p>My name is Daryll Reillo. </p>
         <br />
-        <p>Ever since I was young, I've always liked to learn more about computers. </p>
+        <p>Ever since I was young, I&apos;ve always liked to learn more about computers. </p>
         <br />
         <p>This is me I got my first PC. Too bad I eventually destroyed it on one of my experiments.😊</p>
         <br />
         <p>
           I left my career of 10+ years as an SAP Functional Consultant so I can pursue my dream career on web development. Yes, it took me a decade to realize
-          I wasn't really happy in my career path which led me to this big change.
+          I wasn&apos;t really happy in my career path which led me to this big change.
         </p>
         <br />
         <p>Thank you and have a nice day ahead! </p>

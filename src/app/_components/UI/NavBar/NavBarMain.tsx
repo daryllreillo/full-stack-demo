@@ -126,7 +126,7 @@ const NavBarMain: React.FC<{ session: Session | null }> = ({ session }) => {
           ) : pathname === '/signin' ? (
             <button
               className="cursor-default my-auto mr-2 py-2 px-4 min-w-max font-medium rounded-3xl border-link border-[1px] text-link bg-transparent hover:translate-y-0 hover:shadow-none hover:shadow-transparent"
-              aria-description="Sign in"
+              aria-label="Sign in"
             >
               <a>Sign in</a>
             </button>
@@ -134,7 +134,7 @@ const NavBarMain: React.FC<{ session: Session | null }> = ({ session }) => {
             <button
               className="cursor-pointer my-auto mr-2 py-2 px-4 min-w-max font-medium rounded-3xl border-fg border-[1px] text-fg bg-transparent hover:text-link hover:border-link hover:shadow-link"
               onMouseDown={() => router.push('/signin')}
-              aria-description="Sign in"
+              aria-label="Sign in"
             >
               <Link href="/signin">Sign in</Link>
             </button>

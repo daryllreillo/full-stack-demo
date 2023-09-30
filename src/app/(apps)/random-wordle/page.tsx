@@ -49,14 +49,14 @@ const WordleApp: React.FC = () => {
       dispatch(wordleActions.setWOTD({ wordOfTheDay: data.word }));
       appRef.current!.focus();
     }
-  }, [data, isLoading]);
+  }, [data, isLoading, dispatch]);
 
   useEffect(() => {
     if (wordleState.tryWords.length === 6) {
       // setIsGameOver(true);
       dispatch(wordleActions.setIsGameOver({ isGameOver: true }));
     }
-  }, [wordleState.tryWords.length]);
+  }, [wordleState.tryWords.length, dispatch]);
 
   const resetGame = () => {
     // setIsGameOver(false);
