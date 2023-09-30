@@ -3,10 +3,11 @@ import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
-import logo from '@/app/_icons/apple-touch-icon.png';
 import { BiDownArrow, BiUpArrow } from 'react-icons/bi';
 import { signOut } from 'next-auth/react';
 import { Session } from 'next-auth';
+
+import logo from '@/app/_icons/apple-touch-icon.png';
 
 const NavBarMain: React.FC<{ session: Session | null }> = ({ session }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
@@ -33,7 +34,7 @@ const NavBarMain: React.FC<{ session: Session | null }> = ({ session }) => {
   }, [isMobileMenuOpen]);
 
   return (
-    <header className="border-none w-full bg-bg h-[6vh] min-h-[62px]">
+    <header className="border-none w-full bg-bg h-[6vh] min-h-[62px] selection:bg-none">
       <nav className="flex justify-between items-center px-2 py-3 w-full md:pb-1.5">
         <section className="w-[30vw] lg:w-[20vw] xl:w-[18vw] 2xl:w-[18vw]">
           <Link href="/" className="w-[fit-content] flex justify-start" onClick={closeMenus}>
@@ -44,7 +45,7 @@ const NavBarMain: React.FC<{ session: Session | null }> = ({ session }) => {
         </section>
 
         <section className="w-[70vw] flex justify-end h-10 items-center lg:w-[80vw] xl:w-[82vw] 2xl:w-[82vw]">
-          <span className="text-base text-right min-w-max z-0 mr-3 sm:mr-5 md:mr-6 py-auto ">
+          <span className="text-lg text-right min-w-max z-0 mr-3 sm:mr-5 md:mr-6 py-auto cursor-default ">
             Welcome, <span>{session?.user ? (session.user.name ? /^([\w\-]+)/.exec(session.user.name)![0] : session.user.email) : 'guest'} !</span>
           </span>
           <ul
@@ -53,8 +54,8 @@ const NavBarMain: React.FC<{ session: Session | null }> = ({ session }) => {
               (isMobileMenuOpen ? 'left-0' : '-left-full')
             }
           >
-            <li className="text-lg my-2 py-1 px-2 mr-4 text-right min-w-[4.5rem] font-semibold hover:text-link md:mx-1">
-              <Link href="/" className={pathname === '/' && !isMenuOpen ? 'cursor-default text-link ' : ''} onClick={closeMenus}>
+            <li className="text-lg py-1 px-2 my-2 mr-4 text-right w-[100%] font-semibold rounded-sm hover:text-link hover:bg-navbg-highlight md:py-1 md:px-3 md:mx-1  md:text-center ">
+              <Link href="/" className={pathname === '/' && !isMenuOpen ? 'cursor-default text-link' : ''} onClick={closeMenus}>
                 Home
               </Link>
             </li>
@@ -62,8 +63,8 @@ const NavBarMain: React.FC<{ session: Session | null }> = ({ session }) => {
               {/* Menu button */}
               <button
                 className={
-                  'cursor pointer bg-transparent z-10 hidden border-transparent text-lg md:flex md:mr-4 hover:text-link hover:translate-y-0 hover:shadow-none text-fg ' +
-                  (isMenuOpen ? 'text-link' : '')
+                  'cursor pointer bg-transparent z-10 hidden border-transparent text-lg md:px-3 md:py-1 md:flex md:mr-4 hover:text-link hover:translate-y-0 hover:shadow-none text-fg hover:bg-navbg-highlight md:border-transparent ' +
+                  (isMenuOpen ? 'text-link bg-navbg-highlight' : '')
                 }
                 aria-label="open or close menu"
                 onClick={toggleMenu}
@@ -77,23 +78,38 @@ const NavBarMain: React.FC<{ session: Session | null }> = ({ session }) => {
               className={
                 'bg-bg w-[100%] ' +
                 (isMenuOpen
-                  ? 'md:flex-col md:justify-start md:items-start md:absolute md:top-[68px] md:rounded-md md:p-2 md:text-left md:flex md:w-fit md:border-transparent'
+                  ? 'md:flex-col md:justify-start md:items-start md:absolute md:top-[68px] md:rounded-md md:p-2 md:flex md:w-fit md:border-transparent md:mr-4 md:text-right'
                   : 'md:hidden')
               }
             >
-              <li className="text-lg cursor-pointer min-w-max font-semibold mt-2 mb-0.5 px-2 mr-4 hover:text-link md:mx-1 md:mt-2 md:mb-0.5 md:w-[100%]">
+              <li
+                className={
+                  'text-lg cursor-pointer min-w-max font-semibold mt-2 mb-0.5 py-1 px-2 mr-4 rounded-sm hover:text-link hover:bg-navbg-highlight md:pl-0 md:pr-4 md:mt-2 md:mb-0.5 md:w-[100%] ' +
+                  (pathname === '/random-wordle' ? 'text-link' : '')
+                }
+              >
                 <Link className="cursor-pointer" href="/random-wordle" onClick={closeMenus}>
                   Random Wordle App
                 </Link>
               </li>
-              <li className="text-lg cursor-pointer min-w-max font-semibold mt-0.5 mb-2 px-2 mr-4 hover:text-link md:mx-1 md:mb-3 md:mt-0.5 md:w-[100%]">
+              <li
+                className={
+                  'text-lg cursor-pointer min-w-max font-semibold mt-0.5 mb-2 py-1 px-2 mr-4 rounded-sm hover:text-link hover:bg-navbg-highlight md:pl-0 md:pr-4 md:mb-3 md:mt-0.5 md:w-[100%]  ' +
+                  (pathname === '/yourtodolist' ? 'text-link' : '')
+                }
+              >
                 <Link className="cursor-pointer" href="/yourtodolist" onClick={closeMenus}>
                   To Do List App
                 </Link>
               </li>
 
               {/* page links */}
-              <li className="text-lg cursor-pointer min-w-max font-semibold mt-4 mb-0.5 px-2 mr-4 hover:text-link md:mx-1 md:mt-2 md:mb-0.5 md:w-[100%]">
+              <li
+                className={
+                  'text-lg cursor-pointer min-w-max font-semibold mt-4 mb-0.5 py-1 px-2 mr-4 rounded-sm hover:text-link hover:bg-navbg-highlight md:pl-0 md:pr-4 md:py-0.5 md:mt-2 md:mb-0.5 md:w-[100%] ' +
+                  (pathname === '/aboutme' ? 'text-link' : '')
+                }
+              >
                 <Link className="cursor-pointer" href="/aboutme" onClick={closeMenus}>
                   About me
                 </Link>
@@ -102,13 +118,13 @@ const NavBarMain: React.FC<{ session: Session | null }> = ({ session }) => {
               {/* register or logout */}
               {session ? (
                 <li
-                  className="text-lg cursor-pointer min-w-max font-semibold my-2 px-2 mr-4 hover:text-link md:mx-1 md:mb-2 md:mt-0.5 md:w-[100%]"
+                  className="text-lg cursor-pointer min-w-max font-semibold my-2 py-1 px-2 mr-4 rounded-sm hover:text-link hover:bg-navbg-highlight md:pl-0 md:pr-4 md:py-0.5 md:mb-2 md:mt-0.5 md:w-[100%]"
                   onClick={() => signOut()}
                 >
                   Log out
                 </li>
               ) : (
-                <li className="text-lg my-2 py-1 px-2 mr-4 min-w-[4.5rem] font-semibold hover:text-link md:mx-1 md:mb-2 md:mt-0.5 md:w-[100%]">
+                <li className="text-lg my-2 py-1 px-2 mr-4 min-w-[4.5rem] font-semibold rounded-sm hover:text-link hover:bg-navbg-highlight md:pl-0 md:pr-4 md:py-0.5 md:mb-2 md:mt-0.5 md:w-[100%]">
                   {pathname === '/register' ? (
                     <a className="cursor-default text-link">Register</a>
                   ) : (
@@ -120,6 +136,7 @@ const NavBarMain: React.FC<{ session: Session | null }> = ({ session }) => {
               )}
             </ul>
           </ul>
+
           {/* sign in button */}
           {session ? (
             <></>

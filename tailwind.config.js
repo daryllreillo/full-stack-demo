@@ -106,6 +106,7 @@ module.exports = {
         'text-invalid': 'rgb(var(--color-text-invalid) / <alpha-value>)',
         'modal-fg': 'rgb(var(--color-modal-fg) / <alpha-value>)',
         'modal-bg': 'rgb(var(--color-modal-bg) / <alpha-value>)',
+        'navbg-highlight': 'rgb(var(--color-navbg-highlight) / <alpha-value>)',
       },
     },
   },
