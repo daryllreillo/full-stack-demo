@@ -3,7 +3,7 @@
     This is a wordle clone
 */
 'use client';
-import { useEffect, KeyboardEvent } from 'react';
+import { useEffect, useRef, KeyboardEvent } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import useSWR from 'swr';
 import useSWRMutation from 'swr/mutation';
@@ -21,6 +21,7 @@ let wordOfTheDay = '';
 const WordleApp: React.FC = () => {
   const dispatch = useDispatch();
   const wordleState = useSelector((state: RootState) => state.wordle);
+  const appRef = useRef<HTMLDivElement>(null);
   const { data, isLoading } = useSWR(`${process.env.NEXT_PUBLIC_WORDLE_BACKEND}/word-of-the-day?random=1`, getWOTD);
   const { trigger: postTrigger, isMutating: postIsMutating } = useSWRMutation(`${process.env.NEXT_PUBLIC_WORDLE_BACKEND}/validate-word`, validateWord);
 
@@ -42,9 +43,11 @@ const WordleApp: React.FC = () => {
   }
 
   useEffect(() => {
+    // once the word is retrieved, set the word on state and focus on the app element
     if (data && data?.word && wordOfTheDay === '') {
       wordOfTheDay = data.word;
       dispatch(wordleActions.setWOTD({ wordOfTheDay: data.word }));
+      appRef.current!.focus();
     }
   }, [data, isLoading]);
 
@@ -66,7 +69,12 @@ const WordleApp: React.FC = () => {
   return (
     <>
       {isLoading ? <GenericModalLoading /> : <></>}
-      <div className="h-[93vh] min-h-[750px] w-[100%] bg-transparent outline-none selection:bg-none cursor-default" tabIndex={0} onKeyDownCapture={keyHandler}>
+      <div
+        className="h-[93vh] min-h-[750px] w-[100%] bg-transparent outline-none selection:bg-none cursor-default"
+        tabIndex={0}
+        onKeyDownCapture={keyHandler}
+        ref={appRef}
+      >
         <main className="flex flex-col justify-start items-center h-[93vh] min-h-[750px] w-[100%] bg-cust-image-mainpage bg-cust-size-mainpage animate-cust-animation-mainpage outline-none">
           <h2 className="text-4xl mt-4 md:text-5xl font-semibold">Wordle</h2>
           <p className="mb-1">(random word edition)</p>
