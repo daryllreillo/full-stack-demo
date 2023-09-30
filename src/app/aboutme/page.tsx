@@ -18,7 +18,7 @@ const AboutMePage: React.FC = () => {
           I wasn&apos;t really happy in my career path which led me to this big change.
         </p>
         <br />
-        <p>Thank you and have a nice day ahead! </p>
+        {/* <p>Thank you and have a nice day ahead! </p> */}
       </section>
     </main>
   );
