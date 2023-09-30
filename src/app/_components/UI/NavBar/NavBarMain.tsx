@@ -87,11 +87,11 @@ const NavBarMain: React.FC<{ session: Session | null }> = ({ session }) => {
                 </Link>
               </li>
               <li className="text-lg cursor-pointer min-w-max font-semibold mt-0.5 mb-2 px-2 mr-4 hover:text-link md:mx-1 md:mb-3 md:mt-0.5 md:w-[100%]">
-                <Link className="cursor-pointer" href="/todolist" onClick={closeMenus}>
+                <Link className="cursor-pointer" href="/yourtodolist" onClick={closeMenus}>
                   To Do List App
                 </Link>
               </li>
-              
+
               {/* page links */}
               <li className="text-lg cursor-pointer min-w-max font-semibold mt-4 mb-0.5 px-2 mr-4 hover:text-link md:mx-1 md:mt-2 md:mb-0.5 md:w-[100%]">
                 <Link className="cursor-pointer" href="/aboutme" onClick={closeMenus}>

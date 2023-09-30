@@ -68,7 +68,7 @@ const WordleApp: React.FC = () => {
       {isLoading ? <GenericModalLoading /> : <></>}
       <div className="h-[93vh] min-h-[750px] w-[100%] bg-transparent outline-none selection:bg-none cursor-default" tabIndex={0} onKeyDownCapture={keyHandler}>
         <main className="flex flex-col justify-start items-center h-[93vh] min-h-[750px] w-[100%] bg-cust-image-mainpage bg-cust-size-mainpage animate-cust-animation-mainpage outline-none">
-          <h2 className="text-4xl mt-4 md:mt-8 md:text-5xl">Wordle</h2>
+          <h2 className="text-4xl mt-4 md:text-5xl font-semibold">Wordle</h2>
           <p className="mb-1">(random word edition)</p>
           <div id="wordle_app" className="flex flex-col p-[3px] bg-black rounded-md">
             <Word chars={wordleState.tryWords.length === 0 ? wordleState.currentWord : wordleState.tryWords[0]} charStatuses={wordleState.charStatusesArr[0]} />
