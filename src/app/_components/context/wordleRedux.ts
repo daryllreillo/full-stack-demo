@@ -61,7 +61,8 @@ const wordleSlice = createSlice({
     },
     tryCurrentWord(state, action) {
       const { tryWord, isValid } = action.payload;
-      if (isValid) {
+      // will not accept repeating the last tryWord
+      if (isValid && tryWord !== state.tryWords[state.tryWords.length - 1]) {
         // push word to state.tryWords
         state.tryWords.push(tryWord);
         // dispatch to set character statuses
@@ -69,7 +70,7 @@ const wordleSlice = createSlice({
         state.charStatusesArr[state.tryWords.length - 1] = currentCharStatuses;
         // if word matches WOTD, dispatch to set GameOver and IsWin
         if (tryWord === state.wordOfTheDay) {
-          state.isGameOver = true
+          state.isGameOver = true;
           state.isWon = true;
         }
       }
