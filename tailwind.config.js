@@ -8,7 +8,9 @@ module.exports = {
         'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
         'icons8-checkmark-48-img': `url('/icons8-checkmark-48.svg')`,
         'icons-xmark-img': 'url("/red-x-10335.svg")',
-        'cust-image-mainpage': 'linear-gradient(-45deg, #365314, #14532D, #064E3B, #115E59, #155E75, #1D4ED8)',
+        // 'cust-image-mainpage': 'linear-gradient(-45deg, #365314, #14532D, #064E3B, #115E59, #155E75, #1D4ED8)',
+        'cust-image-mainpage': 'linear-gradient(-45deg, #365314, #14532D, #064E3B, #134E4A, #164E63, #0C4A6E, #1E3A8A, #312E81)',
+        // #365314 #14532D #064E3B #134E4A #164E63 #0C4A6E #1E3A8A #312E81 #4C1D95
       },
       content: {
         'icons-xmark-img': 'url("/red-x-10335.svg")',

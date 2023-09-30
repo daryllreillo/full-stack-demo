@@ -1,8 +1,9 @@
 'use client';
 import { useEffect, useState } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
-import { SiNextdotjs, SiTypescript, SiReact, SiTailwindcss } from 'react-icons/si';
+import logo from '@/app/_icons/apple-touch-icon.png';
 import { BiDownArrow, BiUpArrow } from 'react-icons/bi';
 import { signOut } from 'next-auth/react';
 import { Session } from 'next-auth';
@@ -14,7 +15,7 @@ const NavBarMain: React.FC<{ session: Session | null }> = ({ session }) => {
   const pathname = usePathname();
 
   const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
-  const closeMobileMenu = () => setIsMobileMenuOpen(false);
+  // const closeMobileMenu = () => setIsMobileMenuOpen(false);
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
   const closeMenus = () => {
@@ -35,11 +36,10 @@ const NavBarMain: React.FC<{ session: Session | null }> = ({ session }) => {
     <header className="border-none w-full bg-bg h-[6vh] min-h-[62px]">
       <nav className="flex justify-between items-center px-2 py-3 w-full md:pb-1.5">
         <section className="w-[30vw] lg:w-[20vw] xl:w-[18vw] 2xl:w-[18vw]">
-          <Link href="/" className="w-[fit-content] flex justify-start">
-            <SiReact className="text-2xl mx-0.5" />
-            <SiNextdotjs className="text-2xl mx-0.5" />
-            <SiTailwindcss className="text-2xl mx-0.5" />
-            <SiTypescript className="text-2xl mx-0.5" />
+          <Link href="/" className="w-[fit-content] flex justify-start" onClick={closeMenus}>
+            <span className="ml-1 inline relative -top-0.5">
+              <Image src={logo} alt="logo of dog" className="inline w-[46px]" />
+            </span>
           </Link>
         </section>
 
