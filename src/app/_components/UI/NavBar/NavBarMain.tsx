@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { BiDownArrow, BiUpArrow } from 'react-icons/bi';
+import { LuGamepad } from 'react-icons/lu';
 import { signOut } from 'next-auth/react';
 import { Session } from 'next-auth';
 
@@ -48,6 +49,25 @@ const NavBarMain: React.FC<{ session: Session | null }> = ({ session }) => {
           <span className="text-lg text-right min-w-max z-0 mr-3 sm:mr-5 md:mr-6 py-auto cursor-default ">
             Welcome, <span>{session?.user ? (session.user.name ? /^([\w\-]+)/.exec(session.user.name)![0] : session.user.email) : 'guest'} !</span>
           </span>
+          {/* sign in button */}
+          {session ? (
+            <></>
+          ) : pathname === '/signin' ? (
+            <button
+              className="cursor-default my-auto mr-2 py-2 px-4 min-w-max font-medium rounded-3xl border-link border-[1px] text-link bg-transparent hover:translate-y-0 hover:shadow-none hover:shadow-transparent"
+              aria-label="Sign in"
+            >
+              <a>Sign in</a>
+            </button>
+          ) : (
+            <button
+              className="cursor-pointer my-auto mr-2 py-2 px-4 min-w-max font-medium rounded-3xl border-fg border-[1px] text-fg bg-transparent hover:text-link hover:border-link hover:shadow-link"
+              onMouseDown={() => router.push('/signin')}
+              aria-label="Sign in"
+            >
+              <Link href="/signin">Sign in</Link>
+            </button>
+          )}
           <ul
             className={
               'fixed top-16 flex flex-col justify-center bg-bg items-end w-[100%] z-[99] border-b-[1px] border-t-[1px] border-solid py-3 border-gray-600 transition-all text-right md:static md:flex md:justify-end md:w-fit md:items-center md:flex-row md:border-transparent md:py-0 ' +
@@ -76,10 +96,10 @@ const NavBarMain: React.FC<{ session: Session | null }> = ({ session }) => {
             {/* apps */}
             <ul
               className={
-                'bg-bg w-[100%] ' +
+                'bg-bg w-[100%] transition-all duration-300 md:fixed ' +
                 (isMenuOpen
-                  ? 'md:flex-col md:justify-start md:items-start md:absolute md:top-[68px] md:rounded-md md:p-2 md:flex md:w-fit md:border-transparent md:mr-4 md:text-right'
-                  : 'md:hidden')
+                  ? 'md:flex-col md:justify-start md:items-start md:absolute md:top-[68px] md:rounded-md md:p-2 md:flex md:w-fit md:border-transparent md:mr-4 md:text-right md:right-0 '
+                  : 'md:left-[100%] ')
               }
             >
               <li
@@ -89,7 +109,7 @@ const NavBarMain: React.FC<{ session: Session | null }> = ({ session }) => {
                 }
               >
                 <Link className="cursor-pointer" href="/random-wordle" onClick={closeMenus}>
-                  Random Wordle App
+                  Random Wordle  <LuGamepad className='inline text-2xl pb-0.5'/>
                 </Link>
               </li>
               <li
@@ -136,26 +156,6 @@ const NavBarMain: React.FC<{ session: Session | null }> = ({ session }) => {
               )}
             </ul>
           </ul>
-
-          {/* sign in button */}
-          {session ? (
-            <></>
-          ) : pathname === '/signin' ? (
-            <button
-              className="cursor-default my-auto mr-2 py-2 px-4 min-w-max font-medium rounded-3xl border-link border-[1px] text-link bg-transparent hover:translate-y-0 hover:shadow-none hover:shadow-transparent"
-              aria-label="Sign in"
-            >
-              <a>Sign in</a>
-            </button>
-          ) : (
-            <button
-              className="cursor-pointer my-auto mr-2 py-2 px-4 min-w-max font-medium rounded-3xl border-fg border-[1px] text-fg bg-transparent hover:text-link hover:border-link hover:shadow-link"
-              onMouseDown={() => router.push('/signin')}
-              aria-label="Sign in"
-            >
-              <Link href="/signin">Sign in</Link>
-            </button>
-          )}
 
           {/* hamburger menu button */}
           <button
