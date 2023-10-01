@@ -98,7 +98,7 @@ const NavBarMain: React.FC<{ session: Session | null }> = ({ session }) => {
               className={
                 'bg-bg w-[100%] transition-all duration-300 md:fixed ' +
                 (isMenuOpen
-                  ? 'md:flex-col md:justify-start md:items-start md:absolute md:top-[68px] md:rounded-md md:p-2 md:flex md:w-fit md:border-transparent md:mr-4 md:text-right md:right-0 '
+                  ? 'md:flex-col md:justify-start md:items-start md:absolute md:top-[68px] md:rounded-md md:p-2 md:flex md:w-fit md:border-transparent md:mr-6 md:text-right md:right-0 '
                   : 'md:left-[100%] ')
               }
             >
