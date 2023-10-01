@@ -13,8 +13,14 @@ const Homepage: React.FC = () => {
       <section className="w-full sm:w-[90vw] md:w-[80vw] lg:w-[70vw] xl:w-[50vw] 2xl:w-[40vw] min-h-[500px] mt-4 text-center mx-6 [&>p]:mx-4 [&>p]:text-white">
         <h2 className="text-mainfg text-center mb-1 text-2xl font-semibold">Hi there!</h2>
         <p>I&apos;m Daryll, an aspiring web developer. </p>
-        <div className="w-[200px] h-[200px] mx-auto relative rounded-md sm:h-[250px] sm:w-[250px] md:h-[300px] md:w-[300px]">
-          <Image src={myPic} alt="the developer's portrait" fill className="rounded-md mx-auto my-2 object-contain overflow-hidden" />
+        <div className="mx-auto relative w-[170px] h-[190px] sm:w-[225px] sm:h-[250px] md:w-[270px] md:h-[300px] rounded-md mt-2">
+          <Image
+            src={myPic}
+            alt="the developer's portrait"
+            fill
+            sizes="(max-width: 640px) 170px, (max-width: 768px) 225px, 270px"
+            className="rounded-md mx-auto object-contain w-[170px] h-[190px] sm:w-[225px] sm:h-[250px] md:w-[270px] md:h-[300px]"
+          />
         </div>
         <br />
         <p>Please check out my apps by clicking on the menu button on the upper right.</p>
