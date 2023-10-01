@@ -3,6 +3,8 @@
 */
 import Image from 'next/image';
 import mattyPlaying from '@/app/_images/my_dog/Matty Plays cropped.gif';
+import { Suspense } from 'react';
+import GenericLoader from '../_components/UI/Loading/GenericLoader';
 
 const AboutMePage: React.FC = () => {
   return (
@@ -13,20 +15,22 @@ const AboutMePage: React.FC = () => {
         <br />
         <p>
           Ever since I was young, I&apos;ve always liked computers in general. I remember playing video games all day on my 16-bit Sega Mega Drive (a.k.a Sega
-          Genesis) back when I was just seven. In high school, I remember trying to overclock my first PC until it overheated and died. Now, the tech has
+          Genesis) back when I was just seven. In high school, I remember overclocking my first PC until it got toast. Now, the tech has
           advanced so much, by leaps and bounds, that we can never bring back those low-tech days again.
         </p>
         <br />
         <p>
-          Anyway, I recently left my 10+ year-career as an SAP Functional Consultant so that I can pursue my dream career on web development. Yes, it took me a
-          decade to actually take a risk for this. I have no job as of right now, but I am doing what I like.
+          Anyway, I recently left my 10+ year-career as an SAP Functional Consultant so that I can pursue my dream career on web development. It took me a
+          decade to take this risk. 😊
         </p>
         <br />
         <p>Kudos to all of the people who believed and supported me - Giezzel, Alp, Merbs, Ralph, and all of you. I love you all.</p>
         <br />
         <p>Lastly, here&apos;s a gif of my dog playing.</p>
         <div className="w-[200px] h-[200px] mx-auto relative sm:h-[250px] sm:w-[250px] md:h-[300px] md:w-[300px]">
-          <Image src={mattyPlaying} alt="a dog playing" fill className="mx-auto mt-2 rounded-md object-contain" />
+          <Suspense fallback={<GenericLoader />}>
+            <Image src={mattyPlaying} alt="a dog playing" fill className="mx-auto mt-2 rounded-md object-contain" />
+          </Suspense>
         </div>
       </section>
     </main>
