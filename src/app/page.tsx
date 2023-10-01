@@ -19,6 +19,8 @@ const Homepage: React.FC = () => {
             alt="the developer's portrait"
             fill
             sizes="(max-width: 640px) 170px, (max-width: 768px) 225px, 270px"
+            placeholder="blur"
+            blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAIAAAAmkwkpAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAP0lEQVR4nAE0AMv/ANTVzdG2o8/KuKu0pwD//vWOXk+Se3DU3dQAvrm0cUU1Z1ZO0dvXAFdWYBsAAFhSU1hpczoWGyQvjnBkAAAAAElFTkSuQmCC"
             className="rounded-md mx-auto object-contain w-[170px] h-[190px] sm:w-[225px] sm:h-[250px] md:w-[270px] md:h-[300px]"
           />
         </div>

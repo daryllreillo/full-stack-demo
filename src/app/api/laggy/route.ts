@@ -23,7 +23,7 @@ export async function GET(request: NextRequest, response: NextResponse) {
 
 async function getBlurData() {
   try {
-    const file = await fs.readFile('src/app/_images/my_dog/Matty-still.jpg');
+    const file = await fs.readFile('src/app/_images/my_pic/20220910_124833.jpg');
     const { base64 } = await getPlaiceholder(file);
     console.log(base64);
     return base64;
