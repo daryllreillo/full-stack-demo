@@ -74,7 +74,7 @@ const NavBarMain: React.FC<{ session: Session | null }> = ({ session }) => {
               (isMobileMenuOpen ? 'left-0' : '-left-full')
             }
           >
-            <li className="text-lg py-1 px-2 my-2 mr-4 text-right w-[100%] font-semibold rounded-sm hover:text-link hover:bg-navbg-highlight md:py-1 md:px-3 md:mx-1  md:text-center ">
+            <li className="text-lg py-1 px-2 my-2 mr-4 text-right w-[100%] font-semibold rounded-sm hover:text-link hover:bg-navbg-highlight md:py-1 md:px-3 md:mx-1  md:text-center md:rounded-md ">
               <Link href="/" className={pathname === '/' && !isMenuOpen ? 'cursor-default text-link' : ''} onClick={closeMenus}>
                 Home
               </Link>
@@ -83,7 +83,7 @@ const NavBarMain: React.FC<{ session: Session | null }> = ({ session }) => {
               {/* Menu button */}
               <button
                 className={
-                  'cursor pointer bg-transparent z-10 hidden border-transparent text-lg md:px-3 md:py-1 md:flex md:mr-4 hover:text-link hover:translate-y-0 hover:shadow-none text-fg hover:bg-navbg-highlight md:border-transparent ' +
+                  'cursor pointer bg-transparent z-10 hidden border-transparent text-lg md:pr-2 md:pl-1 md:py-1 md:flex md:mr-4 hover:text-link hover:translate-y-0 hover:shadow-none text-fg hover:bg-navbg-highlight md:border-transparent ' +
                   (isMenuOpen ? 'text-link bg-navbg-highlight' : '')
                 }
                 aria-label="open or close menu"
