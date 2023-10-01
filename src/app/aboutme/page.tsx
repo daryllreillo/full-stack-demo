@@ -25,7 +25,7 @@ const AboutMePage: React.FC = () => {
           took me a decade to take this risk and it feels so great to really take the path I have always wanted.😊
         </p>
 
-        <p>Kudos to all of the people who believed and supported me - Giezzel, Alp, Merbs, Ralph, Chesca, and all of you. I love you all.</p>
+        <p>For all of you people believed and supported me - Giezzel, Alp, Merbs, Ralph, Chesca, and all of you. This is for you!</p>
 
         <p>Thank you for taking some time to read and here&apos;s a gif of my dog playing.</p>
         <div className="mx-auto relative w-[139px] h-[250px] sm:w-[167px] sm:h-[300px] md:w-[195px] md:h-[350px] rounded-sm md:rounded-md">
