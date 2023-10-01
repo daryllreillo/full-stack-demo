@@ -1,12 +1,14 @@
 /*
   path: '/aboutme'
 */
+// 'use client';
 import Image from 'next/image';
-import mattyPlaying from '@/app/_images/my_dog/Matty Plays cropped.gif';
-import { Suspense } from 'react';
-import GenericLoader from '../_components/UI/Loading/GenericLoader';
+// import useSWR from 'swr';
+import mattyPlaying from '@/app/_images/my_dog/Matty Plays.gif';
 
 const AboutMePage: React.FC = () => {
+  // const { data, isLoading } = useSWR(`${process.env.NEXT_PUBLIC_DOMAIN}/api/laggy`, getData);
+
   return (
     <main className="flex flex-col justify-between items-center h-[93vh] min-h-[750px] w-[100%] bg-cust-image-mainpage bg-cust-size-mainpage animate-cust-animation-mainpage selection:bg-none text-sm sm:text-base">
       <section className="w-full sm:w-[90vw] md:w-[80vw] lg:w-[70vw] xl:w-[50vw] 2xl:w-[40vw] min-h-[500px] mt-4 text-center mx-6 [&>p]:mx-4 [&>p]:text-white [&>p]:cursor-default [&>p]:mb-3">
@@ -27,9 +29,14 @@ const AboutMePage: React.FC = () => {
 
         <p>Thank you for taking some time to read and here&apos;s a gif of my dog playing.</p>
         <div className="mx-auto relative w-[139px] h-[250px] sm:w-[167px] sm:h-[300px] md:w-[195px] md:h-[350px] rounded-sm md:rounded-md">
-          <Suspense fallback={<GenericLoader />}>
-            <Image src={mattyPlaying} alt="a dog playing" fill className="mx-auto rounded-md object-contain" />
-          </Suspense>
+          <Image
+            src={mattyPlaying}
+            alt="a dog playing"
+            fill
+            placeholder="blur"
+            blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAAECAIAAAArjXluAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAJUlEQVR4nGO4fmz3hKxIhv+/Hq/qrWT4cPukPAMDw6qmLAtxNgDWzAzWBpkilgAAAABJRU5ErkJggg=="
+            className="mx-auto rounded-md object-contain"
+          />
         </div>
       </section>
     </main>
@@ -37,3 +44,14 @@ const AboutMePage: React.FC = () => {
 };
 
 export default AboutMePage;
+
+// async function getData(url: string) {
+//   const res = await fetch(url, {
+//     next: { revalidate: 60 },
+//   });
+//   if (!res.ok) {
+//     console.log(res);
+//     throw new Error('Failed to fetch data from db');
+//   }
+//   return res.json();
+// }

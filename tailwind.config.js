@@ -83,6 +83,14 @@ module.exports = {
             'background-position': '100% 50%',
           },
         },
+        loading: {
+          from: {
+            transform: 'rotate(0turn)',
+          },
+          to: {
+            transform: 'rotate(2turn)',
+          },
+        },
       },
       animation: {
         'slide-down': 'slide-down 400ms ease-out',
@@ -90,6 +98,7 @@ module.exports = {
         'fade-in': 'fade-in 200ms linear',
         'fade-out': 'fade-out 200ms linear',
         'cust-animation-mainpage': 'cust-keyframes-mainpage 13s ease infinite',
+        loading: 'loading 0.9s ease-in-out infinite',
       },
       colors: {
         fg: 'rgb(var(--color-fg) / <alpha-value>)',
