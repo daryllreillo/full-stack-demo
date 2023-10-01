@@ -14,9 +14,8 @@ const AboutMePage: React.FC = () => {
         <p>My name is Daryll Reillo. </p>
 
         <p>
-          Ever since I was young, I&apos;ve always liked computers. I remember playing video games all day on my 16-bit Sega Mega Drive (a.k.a Sega
-          Genesis) back when I was seven. Back in high school, I remember overclocking my first PC until it got toast. These low-tech memories will always be in
-          my mind.
+          Ever since I was young, I&apos;ve always liked computers. I remember playing video games all day on my 16-bit Sega Mega Drive (a.k.a Sega Genesis)
+          back when I was seven. Back in high school, I remember overclocking my first PC until it got toast. These low-tech memories will always be in my mind.
         </p>
 
         <p>
@@ -27,11 +26,11 @@ const AboutMePage: React.FC = () => {
         <p>Kudos to all of the people who believed and supported me - Giezzel, Alp, Merbs, Ralph, Chesca, and all of you. I love you all.</p>
 
         <p>Thank you for taking some time to read and here&apos;s a gif of my dog playing.</p>
-        {/* <div className="w-[112px] h-[200px] mx-auto relative sm:w-[250px] sm:h-[250px] md:w-[300px] md:h-[300px]"> */}
+        <div className="mx-auto relative w-[139px] h-[250px] sm:w-[167px] sm:h-[300px] md:w-[195px] md:h-[350px] rounded-sm md:rounded-md">
           <Suspense fallback={<GenericLoader />}>
-            <Image src={mattyPlaying} alt="a dog playing" height={200} className="mx-auto rounded-md object-contain" />
+            <Image src={mattyPlaying} alt="a dog playing" fill className="mx-auto rounded-md object-contain" />
           </Suspense>
-        {/* </div> */}
+        </div>
       </section>
     </main>
   );
