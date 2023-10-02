@@ -28,7 +28,7 @@ const wordleSlice = createSlice({
     },
     keyStroke(state, action) {
       const { key } = action.payload;
-      if (/^[a-zA-Z]$/.test(key)) {
+      if (/^[a-zA-Z]$/.test(key) && !state.isGameOver) {
         // if alphabet key, add to current word
         if (state.currentWord.length < 5) {
           state.currentWord += key as string;
