@@ -9,7 +9,7 @@ import myPic from '@/app/_images/my_pic/20220910_124833.jpg';
 
 const Homepage: React.FC = () => {
   return (
-    <main className="flex flex-col justify-between items-center h-[93vh] min-h-[750px] w-[100%] bg-cust-image-mainpage bg-cust-size-mainpage animate-cust-animation-mainpage selection:bg-none cursor-default">
+    <main className="flex flex-col justify-between items-center h-[93dvh] min-h-[750px] w-[100%] bg-cust-image-mainpage bg-cust-size-mainpage animate-cust-animation-mainpage selection:bg-none cursor-default">
       <section className="w-full sm:w-[90vw] md:w-[80vw] lg:w-[70vw] xl:w-[50vw] 2xl:w-[40vw] min-h-[500px] mt-4 text-center mx-6 [&>p]:mx-4 [&>p]:text-white">
         <h2 className="text-mainfg text-center mb-1 text-2xl font-semibold">Hi there!</h2>
         <p>I&apos;m Daryll, an aspiring web developer. </p>

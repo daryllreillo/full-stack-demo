@@ -13,7 +13,6 @@ export interface WordInterface {
 
 const Word: React.FC<WordInterface> = ({ chars, charStatuses, animateClass }) => {
   const { currentWord } = useSelector((state: RootState) => state.wordle);
-  console.log(currentWord, chars);
   const dispatch = useDispatch();
 
   const letterLine = charStatuses?.map((charStatus, index) => {

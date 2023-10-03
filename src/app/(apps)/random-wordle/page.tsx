@@ -66,31 +66,29 @@ const WordleApp: React.FC = () => {
   return (
     <>
       {isLoading ? <GenericModalLoading /> : <></>}
-      <div
-        className="h-[93vh] min-h-[750px] w-[100%] bg-transparent outline-none selection:bg-none cursor-default"
+      <main
+        className="h-[100dvh] min-h-[890px] w-[100%] bg-transparent outline-none selection:bg-none cursor-default flex flex-col justify-start items-center bg-cust-image-mainpage bg-cust-size-mainpage animate-cust-animation-mainpage text-white"
         tabIndex={0}
         onKeyDownCapture={keyHandler}
         ref={appRef}
       >
-        <main className="flex flex-col justify-start items-center h-[93vh] min-h-[750px] w-[100%] bg-cust-image-mainpage bg-cust-size-mainpage animate-cust-animation-mainpage outline-none text-white">
-          <h2 className="text-4xl mt-4 md:text-5xl font-semibold">Wordle</h2>
-          <p className="mb-1">(random word edition)</p>
-          <WordGrid />
-          <KeyBoard />
-          <div className="mt-1 flex flex-col items-center">
-            <p className="text-xl my-2">
-              {wordleState.isGameOver ? wordleState.isWon ? 'You won!' : `You Lost! The answer is ${wordleState.wordOfTheDay.toUpperCase()}.` : <></>}
-            </p>
-            {wordleState.isGameOver ? (
-              <button onClick={resetGame} className="py-2 px-4">
-                Reset
-              </button>
-            ) : (
-              <></>
-            )}
-          </div>
-        </main>
-      </div>
+        <h2 className="text-4xl mt-4 md:text-5xl font-semibold">Wordle</h2>
+        <p className="mb-1">(random word edition)</p>
+        <WordGrid />
+        <KeyBoard />
+        <div className="mt-1 flex flex-col items-center">
+          <p className="text-xl my-2">
+            {wordleState.isGameOver ? wordleState.isWon ? 'You won!' : `You Lost! The answer is ${wordleState.wordOfTheDay.toUpperCase()}.` : <></>}
+          </p>
+          {wordleState.isGameOver ? (
+            <button onClick={resetGame} className="py-2 px-4">
+              Reset
+            </button>
+          ) : (
+            <></>
+          )}
+        </div>
+      </main>
     </>
   );
 };

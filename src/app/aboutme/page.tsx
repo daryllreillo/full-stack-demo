@@ -10,7 +10,7 @@ const AboutMePage: React.FC = () => {
   // const { data, isLoading } = useSWR(`${process.env.NEXT_PUBLIC_DOMAIN}/api/laggy`, getData);
 
   return (
-    <main className="flex flex-col justify-between items-center h-[93vh] min-h-[750px] w-[100%] bg-cust-image-mainpage bg-cust-size-mainpage animate-cust-animation-mainpage selection:bg-none text-sm sm:text-base">
+    <main className="flex flex-col justify-between items-center h-[93dvh] min-h-[750px] w-[100%] bg-cust-image-mainpage bg-cust-size-mainpage animate-cust-animation-mainpage selection:bg-none text-sm sm:text-base">
       <section className="w-full sm:w-[90vw] md:w-[80vw] lg:w-[70vw] xl:w-[50vw] 2xl:w-[40vw] min-h-[500px] mt-4 text-center mx-6 [&>p]:mx-4 [&>p]:text-white [&>p]:cursor-default [&>p]:mb-3">
         <h2 className="text-mainfg text-center mb-1 text-xl font-semibold cursor-default sm:text-2xl">About me</h2>
         <p>My name is Daryll Reillo. </p>
