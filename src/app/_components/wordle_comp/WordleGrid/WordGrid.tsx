@@ -7,7 +7,13 @@ const WordGrid: React.FC = () => {
   const wordleState = useSelector((state: RootState) => state.wordle);
 
   const grid = wordleState.charStatusesArr.map((charStatuses, index) => {
-    return <Word chars={wordleState.tryWords.length === index ? wordleState.currentWord : wordleState.tryWords[index]} charStatuses={charStatuses} />;
+    return (
+      <Word
+        key={'wordLine' + index}
+        chars={wordleState.tryWords.length === index ? wordleState.currentWord : wordleState.tryWords[index]}
+        charStatuses={charStatuses}
+      />
+    );
   });
 
   return (
