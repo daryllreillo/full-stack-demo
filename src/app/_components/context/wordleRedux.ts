@@ -1,7 +1,7 @@
 'use client';
 import { createSlice, configureStore } from '@reduxjs/toolkit';
 
-import type { CharStatusType } from '@/app/_components/wordle_comp/Letter';
+import type { CharStatusType } from '@/app/_components/wordle_comp/WordleGrid/Letter';
 
 export const initialWordleState: {
   currentWord: string;

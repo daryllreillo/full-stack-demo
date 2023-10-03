@@ -1,5 +1,5 @@
 /*
-    path: /wordle-like
+    path: /random-wordle
     This is a wordle clone
 */
 'use client';
@@ -8,8 +8,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import useSWR from 'swr';
 import useSWRMutation from 'swr/mutation';
 
-import Word from '@/app/_components/wordle_comp/Word';
 import GenericModalLoading from '@/app/_components/UI/Loading/GenericModalLoading';
+import WordGrid from '@/app/_components/wordle_comp/WordleGrid/WordGrid';
 import KeyBoard from '@/app/_components/wordle_comp/Keyboard/KeyBoard';
 import { wordleActions, RootState } from '@/app/_components/context/wordleRedux';
 
@@ -19,7 +19,7 @@ const WordleApp: React.FC = () => {
   const dispatch = useDispatch();
   const wordleState = useSelector((state: RootState) => state.wordle);
   const appRef = useRef<HTMLDivElement>(null);
-  const { data, isLoading } = useSWR(`${process.env.NEXT_PUBLIC_WORDLE_BACKEND}/word-of-the-day?random=1`, getWOTD);
+  const { data, isLoading } = useSWR(`${process.env.NEXT_PUBLIC_WORDLE_BACKEND}/word-of-the-day?random=1`, getWord);
   const { trigger: postTrigger, isMutating: postIsMutating } = useSWRMutation(`${process.env.NEXT_PUBLIC_WORDLE_BACKEND}/validate-word`, validateWord);
 
   const keyHandler = (event: KeyboardEvent) => {
@@ -75,14 +75,7 @@ const WordleApp: React.FC = () => {
         <main className="flex flex-col justify-start items-center h-[93vh] min-h-[750px] w-[100%] bg-cust-image-mainpage bg-cust-size-mainpage animate-cust-animation-mainpage outline-none text-white">
           <h2 className="text-4xl mt-4 md:text-5xl font-semibold">Wordle</h2>
           <p className="mb-1">(random word edition)</p>
-          <div id="wordle_app" className="flex flex-col p-[3px] bg-black rounded-md">
-            <Word chars={wordleState.tryWords.length === 0 ? wordleState.currentWord : wordleState.tryWords[0]} charStatuses={wordleState.charStatusesArr[0]} />
-            <Word chars={wordleState.tryWords.length === 1 ? wordleState.currentWord : wordleState.tryWords[1]} charStatuses={wordleState.charStatusesArr[1]} />
-            <Word chars={wordleState.tryWords.length === 2 ? wordleState.currentWord : wordleState.tryWords[2]} charStatuses={wordleState.charStatusesArr[2]} />
-            <Word chars={wordleState.tryWords.length === 3 ? wordleState.currentWord : wordleState.tryWords[3]} charStatuses={wordleState.charStatusesArr[3]} />
-            <Word chars={wordleState.tryWords.length === 4 ? wordleState.currentWord : wordleState.tryWords[4]} charStatuses={wordleState.charStatusesArr[4]} />
-            <Word chars={wordleState.tryWords.length === 5 ? wordleState.currentWord : wordleState.tryWords[5]} charStatuses={wordleState.charStatusesArr[5]} />
-          </div>
+          <WordGrid />
           <KeyBoard />
           <div className="mt-1 flex flex-col items-center">
             <p className="text-xl my-2">
@@ -104,7 +97,7 @@ const WordleApp: React.FC = () => {
 
 export default WordleApp;
 
-async function getWOTD(url: string) {
+async function getWord(url: string) {
   const res = await fetch(url);
 
   if (!res.ok) {

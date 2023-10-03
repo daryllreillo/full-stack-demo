@@ -1,4 +1,4 @@
-import Letter, { type CharStatusType } from '@/app/_components/wordle_comp/Letter';
+import Letter, { type CharStatusType } from '@/app/_components/wordle_comp/WordleGrid/Letter';
 
 export interface WordInterface {
   chars?: string;
