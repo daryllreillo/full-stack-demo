@@ -91,6 +91,51 @@ module.exports = {
             transform: 'rotate(2turn)',
           },
         },
+        'shake-x': {
+          '0%': {
+            transform: 'translateX(0px)',
+          },
+          '25%': {
+            transform: 'translateX(6px)',
+          },
+          '50%': {
+            transform: 'translateX(-10px)',
+          },
+          '70%': {
+            transform: 'translateX(6px)',
+          },
+          '100%': {
+            transform: 'translateX(0px)',
+          },
+        },
+        'flip-y': {
+          '0%': {
+            transform: 'rotateX(180deg)',
+          },
+          '50%': {
+            transform: 'rotateX(270deg)',
+          },
+          '100%': {
+            transform: 'rotateX(360deg)',
+          },
+        },
+        pop: {
+          '0%': {
+            transform: 'scale(1)',
+          },
+          '25%': {
+            transform: 'scale(1.05)',
+          },
+          '50%': {
+            transform: 'scale(1.2)',
+          },
+          '75%': {
+            transform: 'scale(1.05)',
+          },
+          '100%': {
+            transform: 'scale(1)',
+          },
+        },
       },
       animation: {
         'slide-down': 'slide-down 400ms ease-out',
@@ -99,6 +144,9 @@ module.exports = {
         'fade-out': 'fade-out 200ms linear',
         'cust-animation-mainpage': 'cust-keyframes-mainpage 13s ease infinite',
         loading: 'loading 0.9s ease-in-out infinite',
+        'shake-x': 'shake-x 300ms linear',
+        'flip-y': 'flip-y 300ms linear',
+        pop: 'pop 200ms linear',
       },
       colors: {
         fg: 'rgb(var(--color-fg) / <alpha-value>)',

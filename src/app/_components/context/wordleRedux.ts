@@ -10,13 +10,24 @@ export const initialWordleState: {
   isGameOver: boolean;
   isWon: boolean;
   wordOfTheDay: string;
+  wordAnimation: '' | 'animate-shake-x' | 'animate-flip-y';
+  letterAnimation: '' | 'animate-pop';
 } = {
   currentWord: '',
   tryWords: [],
-  charStatusesArr: [[], [], [], [], [], []],
+  charStatusesArr: [
+    ['', '', '', '', ''],
+    ['', '', '', '', ''],
+    ['', '', '', '', ''],
+    ['', '', '', '', ''],
+    ['', '', '', '', ''],
+    ['', '', '', '', ''],
+  ],
   isGameOver: false,
   isWon: false,
   wordOfTheDay: '',
+  wordAnimation: '',
+  letterAnimation: '',
 };
 
 const wordleSlice = createSlice({
@@ -35,6 +46,7 @@ const wordleSlice = createSlice({
         } else {
           state.currentWord = (state.currentWord.slice(0, 4) + key) as string;
         }
+        state.letterAnimation = 'animate-pop';
       } else if (key === 'Backspace') {
         // if backspace key, remove last character from current word
         state.currentWord = state.currentWord.slice(0, state.currentWord.length - 1);
@@ -63,6 +75,8 @@ const wordleSlice = createSlice({
       const { tryWord, isValid } = action.payload;
       // will not accept repeating the last tryWord
       if (isValid && tryWord !== state.tryWords[state.tryWords.length - 1]) {
+        // CSS flip effect
+        state.wordAnimation = 'animate-flip-y';
         // push word to state.tryWords
         state.tryWords.push(tryWord);
         // dispatch to set character statuses
@@ -73,9 +87,15 @@ const wordleSlice = createSlice({
           state.isGameOver = true;
           state.isWon = true;
         }
+        // clear current word
+        state.currentWord = '';
+      } else {
+        // CSS shake effect
+        state.wordAnimation = 'animate-shake-x';
       }
-      // clear current word
-      state.currentWord = '';
+    },
+    clearWordAnimation(state) {
+      state.wordAnimation = '';
     },
   },
 });
