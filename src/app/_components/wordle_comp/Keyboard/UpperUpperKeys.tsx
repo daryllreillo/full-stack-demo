@@ -13,10 +13,10 @@ const UpperKeys: React.FC = () => {
 
   const tryThisWordHandler = async () => {
     if (wordleState.currentWord.length >= 5) {
-      const data = await postTrigger({ word: wordleState.currentWord });
+      const data = await postTrigger({ word: wordleState.currentWord ?? '' });
       return dispatch(wordleActions.tryCurrentWord({ tryWord: data.word, isValid: data.validWord }));
     } else {
-      return dispatch(wordleActions.clearCurrentWord());
+      return dispatch(wordleActions.shakeWord());
     }
   };
 

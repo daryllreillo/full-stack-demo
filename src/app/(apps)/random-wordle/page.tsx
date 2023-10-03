@@ -29,11 +29,13 @@ const WordleApp: React.FC = () => {
   async function gameLogic(key: string) {
     if (wordleState.tryWords.length < 6 && !wordleState.isGameOver) {
       if (key !== 'Enter') {
-        dispatch(wordleActions.keyStroke({ key }));
+        return dispatch(wordleActions.keyStroke({ key }));
       } else {
         if (wordleState.currentWord.length >= 5) {
           const data = await postTrigger({ word: wordleState.currentWord });
-          dispatch(wordleActions.tryCurrentWord({ tryWord: data.word, isValid: data.validWord }));
+          return dispatch(wordleActions.tryCurrentWord({ tryWord: data.word, isValid: data.validWord }));
+        } else {
+          return dispatch(wordleActions.shakeWord());
         }
       }
     }

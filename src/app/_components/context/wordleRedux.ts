@@ -74,7 +74,7 @@ const wordleSlice = createSlice({
     tryCurrentWord(state, action) {
       const { tryWord, isValid } = action.payload;
       // will not accept repeating the last tryWord
-      if (isValid && tryWord !== state.tryWords[state.tryWords.length - 1]) {
+      if (isValid && tryWord !== state.tryWords[state.tryWords.length - 1] && tryWord.length >= 5) {
         // CSS flip effect
         state.wordAnimation = 'animate-flip-y';
         // push word to state.tryWords
@@ -88,7 +88,7 @@ const wordleSlice = createSlice({
           state.isWon = true;
         }
         // clear current word
-        state.currentWord = '';
+        // state.currentWord = '';
       } else {
         // CSS shake effect
         state.wordAnimation = 'animate-shake-x';
@@ -96,6 +96,9 @@ const wordleSlice = createSlice({
     },
     clearWordAnimation(state) {
       state.wordAnimation = '';
+    },
+    shakeWord(state) {
+      state.wordAnimation = 'animate-shake-x';
     },
   },
 });
