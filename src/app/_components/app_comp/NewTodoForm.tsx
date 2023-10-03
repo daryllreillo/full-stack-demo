@@ -40,7 +40,7 @@ const NewTodoForm: React.FC = () => {
       <form className="mt-4 text-center flex flex-col items-center" onSubmit={submitHandler}>
         <label htmlFor="text"></label>
         <input
-          className="text-mainfg bg-mainfield rounded border-mainfg border-solid border-[1px] py-2 px-2.5 text-center w-[85%] text-[1.1rem] outline-1 outline-blue-400 placeholder:text-mainplaceholder focus:placeholder:text-transparent xl:w-[100%] 2xl:w-p[90%]"
+          className="text-mainfg bg-mainfield rounded border-mainfg border-solid border-[1px] py-2 px-2.5 text-center w-[85%] md:w-[80%] lg:w-[75%] xl:w-[75%] 2xl:w-p[70%] text-[1.1rem] outline-1 outline-blue-400 placeholder:text-mainplaceholder focus:placeholder:text-transparent "
           id="text"
           type="text"
           ref={inputRef}
@@ -50,9 +50,12 @@ const NewTodoForm: React.FC = () => {
         />
         <Button
           type="submit"
-          className={'text-mainfg text-sm w-[6.5rem] py-2 px-3 rounded-md m-0 mt-2 border-blue-300 hover:shadow-md hover:shadow-blue-400 ' + (isValidInput ? 'translate-y-[-0.3rem] hover:shadow-md hover:shadow-blue-400 ' : '')}
+          className={
+            'text-mainfg text-sm w-[6.5rem] py-2 px-3 rounded-md m-0 mt-2 border-blue-300 hover:shadow-md hover:shadow-blue-400 ' +
+            (isValidInput ? 'translate-y-[-0.3rem] hover:shadow-md hover:shadow-blue-400 ' : '')
+          }
           disabled={false}
-          aria-label='Add to list'
+          aria-label="Add to list"
         >
           Add to List
         </Button>
