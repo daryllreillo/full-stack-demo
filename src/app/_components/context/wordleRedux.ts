@@ -88,7 +88,7 @@ const wordleSlice = createSlice({
           state.isWon = true;
         }
         // clear current word
-        // state.currentWord = '';
+        state.currentWord = '';
       } else {
         // CSS shake effect
         state.wordAnimation = 'animate-shake-x';
