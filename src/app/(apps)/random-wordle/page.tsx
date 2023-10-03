@@ -44,7 +44,9 @@ const WordleApp: React.FC = () => {
     if (data && data?.word && wordOfTheDay === '') {
       wordOfTheDay = data.word;
       dispatch(wordleActions.setWOTD({ wordOfTheDay: data.word }));
-      appRef.current!.focus();
+      if (window.innerWidth > 768 ) {
+        appRef.current!.focus();
+      }
     }
   }, [data, isLoading, dispatch]);
 
