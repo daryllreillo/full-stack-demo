@@ -67,7 +67,7 @@ const WordleApp: React.FC = () => {
     <>
       {isLoading ? <GenericModalLoading /> : <></>}
       <main
-        className="h-[100dvh] min-h-[890px] w-[100%] bg-transparent outline-none selection:bg-none cursor-default flex flex-col justify-start items-center bg-cust-image-mainpage bg-cust-size-mainpage animate-cust-animation-mainpage text-white"
+        className="h-[93dvh] min-h-[880px] w-[100%] bg-transparent outline-none selection:bg-none cursor-default flex flex-col justify-start items-center bg-cust-image-mainpage bg-cust-size-mainpage animate-cust-animation-mainpage text-white"
         tabIndex={0}
         onKeyDownCapture={keyHandler}
         ref={appRef}
