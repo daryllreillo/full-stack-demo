@@ -11,7 +11,7 @@ const UpperKeys: React.FC = () => {
 
   const { trigger: postTrigger, isMutating: postIsMutating } = useSWRMutation(`${process.env.NEXT_PUBLIC_WORDLE_BACKEND}/validate-word`, validateWord);
 
-  const tryThisWord = async () => {
+  const tryThisWordHandler = async () => {
     if (wordleState.currentWord.length >= 5) {
       const data = await postTrigger({ word: wordleState.currentWord });
       return dispatch(wordleActions.tryCurrentWord({ tryWord: data.word, isValid: data.validWord }));
@@ -23,7 +23,7 @@ const UpperKeys: React.FC = () => {
   return (
     <div className="flex flex-row justify-around w-[100%]">
       <Key keyPrint="Clear" onClick={() => dispatch(wordleActions.keyStroke({ key: 'Escape' }))} />
-      <Key keyPrint="Enter" onClick={tryThisWord} />
+      <Key keyPrint="Enter" onClick={tryThisWordHandler} />
       <Key keyPrint="Backspace" onClick={() => dispatch(wordleActions.keyStroke({ key: 'Backspace' }))} />
     </div>
   );

@@ -10,10 +10,7 @@ import useSWRMutation from 'swr/mutation';
 
 import Word from '@/app/_components/wordle_comp/Word';
 import GenericModalLoading from '@/app/_components/UI/Loading/GenericModalLoading';
-import UpperUpperKeys from '@/app/_components/wordle_comp/Keyboard/UpperUpperKeys';
-import UpperKeys from '@/app/_components/wordle_comp/Keyboard/UpperKeys';
-import MiddleKeys from '@/app/_components/wordle_comp/Keyboard/MiddleKeys';
-import LowerKeys from '@/app/_components/wordle_comp/Keyboard/LowerKeys';
+import KeyBoard from '@/app/_components/wordle_comp/Keyboard/KeyBoard';
 import { wordleActions, RootState } from '@/app/_components/context/wordleRedux';
 
 let wordOfTheDay = '';
@@ -86,12 +83,7 @@ const WordleApp: React.FC = () => {
             <Word chars={wordleState.tryWords.length === 4 ? wordleState.currentWord : wordleState.tryWords[4]} charStatuses={wordleState.charStatusesArr[4]} />
             <Word chars={wordleState.tryWords.length === 5 ? wordleState.currentWord : wordleState.tryWords[5]} charStatuses={wordleState.charStatusesArr[5]} />
           </div>
-          <div className="min-h-[30px] mt-3 mb-2 md:min-h-[75px] flex flex-col items-center md:mb-3">
-            <UpperUpperKeys />
-            <UpperKeys />
-            <MiddleKeys />
-            <LowerKeys />
-          </div>
+          <KeyBoard />
           <div className="mt-1 flex flex-col items-center">
             <p className="text-xl my-2">
               {wordleState.isGameOver ? wordleState.isWon ? 'You won!' : `You Lost! The answer is ${wordleState.wordOfTheDay.toUpperCase()}.` : <></>}
